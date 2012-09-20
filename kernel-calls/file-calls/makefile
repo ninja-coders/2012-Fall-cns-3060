@@ -1,19 +1,19 @@
-all: kernal-calls
+all: file-calls
 
 run: release
-	./kernal-calls
+	./file-calls
 
-debug: kernal-calls-debug
-	gdb kernal-calls
+debug: file-calls-debug
+	gdb file-calls
 
-release: clean kernal-calls
+release: clean file-calls
 
-kernal-calls-debug: kernal-calls.cpp
-	g++ kernal-calls.cpp -g -o kernal-calls
+file-calls-debug: file-calls.cpp
+	g++ file-calls.cpp -g -o file-calls
 
-kernal-calls: kernal-calls.cpp
-	g++ kernal-calls.cpp -o kernal-calls
+file-calls: file-calls.cpp
+	g++ file-calls.cpp -o file-calls
 
 clean:
-	rm -f kernal-calls
+	rm -f file-calls
 
