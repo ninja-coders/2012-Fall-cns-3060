@@ -2,20 +2,19 @@
 #include <string.h>
 
 int main(int argc, char* argv[]) {
-  char buffer[25];
-  memset(buffer, 0, sizeof(buffer));
-  while (!ferror(stdin) && !feof(stdin)) {
- 
-    int i = 0;
-    do
-    {
-      buffer[i] = fgetc(stdin);
-    } while (i++ < 25 && !(ferror(stdin) || feof(stdin)));
-    for (i = 0; i < 25; ++i) {
-      fputc(buffer[i], stdout);
-    }
-  }  
+  while (!feof(stdin) && !ferror(stdin)) {
+    int c = fgetc(stdin);
 
+    if (c != EOF) {
+      fputc(c, stdout);
+    }
+  }
+
+  if (ferror(stdin)) {
+    perror("Error while reading from stdin");
+    clearerr(stdin);
+  }
+  
   return 0;
 }
 
