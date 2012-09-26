@@ -1,4 +1,4 @@
-RUN_ARGS= 
+RUN_ARGS=
 
 all: dir-calls
 
